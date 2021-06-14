@@ -56,8 +56,12 @@ public class Game {
             //String filepath = new File("").getAbsolutePath();
             //System.out.println("Path: "+filepath);
             //filePath.concat("/src/media/questions.csv");
-            String qu_filepath = "E:/develop/java/humanmachine01/src/media/questions.csv";
-            String descr_filepath = "E:/develop/java/humanmachine01/src/media/descriptions.csv";
+            //String qu_filepath = "E:/develop/java/humanmachine01/src/media/questions.csv";
+            //String descr_filepath = "E:/develop/java/humanmachine01/src/media/descriptions.csv";
+            String userdir = System.getProperty("user.dir");
+            System.out.println("Working Directory = " + userdir);
+            String qu_filepath = userdir.concat("/src/media/questions.csv");
+            String descr_filepath = userdir.concat("/src/media/descriptions.csv");
             //System.out.println("Path: "+filepath);
             csvReader = new BufferedReader(new FileReader(qu_filepath));
             //nr question answer_machine answer_possible answer_category category image
@@ -91,7 +95,6 @@ public class Game {
             System.out.println("qpaths: " + Arrays.toString(qpaths));
             System.out.println("chats: " + Arrays.toString(chats));
             System.out.println("chat_paths: " + Arrays.toString(chat_paths));
-            
             
             csvReader2 = new BufferedReader(new FileReader(descr_filepath));
             //nr question answer_machine answer_possible answer_category category image

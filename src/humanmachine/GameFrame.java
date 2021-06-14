@@ -38,7 +38,7 @@ public class GameFrame extends JFrame {
     public GameFrame() {
         initComponents();
         
-        Timer timer=new Timer(5000,new ActionListener(){
+        Timer timer=new Timer(2000,new ActionListener(){
             public void actionPerformed(ActionEvent e)
             {
                 //if ((game.chats[0]).length()>0) {
@@ -106,9 +106,6 @@ public class GameFrame extends JFrame {
         //fxPanel.setScene(scene);
     }
     
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -367,7 +364,7 @@ public class GameFrame extends JFrame {
         answer_machine_ta.setText(text_help);
         game.setState(2);
         
-        //TODO: How to get a point???
+        //How to get a point
         if (game.getCurrentAnswerMachine().equals(game.getCurrentCorrectAnswer())) {machine.addPoints(1);}
         if (answer_human_ta.getText().equals(game.getCurrentCorrectAnswer()) & !answer_human_ta.getText().equals("")) {human.addPoints(1);}
         
