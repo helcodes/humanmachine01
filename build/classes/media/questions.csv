@@ -1,23 +1,24 @@
-nr;question;answer_machine;answer_possible;answer_category;category;image;
-1;Wanna play?;----------;;;chat;;
-2;Findest du deine Unterwäsche heute auch unbequem?;;;;chat;;
-3;Wohnst du in einer schönen, sicheren Gegend?;;;;chat;;
-4;Are you afraid?;;;;chat;;
-5;Are you nervous?;;;;chat;;
-6;Wanna talk about your parents...?;;;;chat;;
-7;What is the difference between you and a bird?;;;;chat;;
-8;Do you like traffic lights as well?;;;;chat;;
-9;Mensch gewinnt die Frage: You did a great job and you are a great guy! Could you give me some points?;;;;chat;;
-10;Hey cool; same answer! You are like me…???;;;chat;;
-11;Do you have to visit the restroom?;;;;chat;;
-12;What is green?;A Grün ist der Farbreiz der wahrgenommen wird wenn Licht mit einer spektralen Verteilung ins Auge fällt. Wellenlängen zwischen 520 und 565 nm. \n B kurz für Grünflächen grünes Blattwerk und Ähnliches \n C Kartenspiel: eine Farbe im deutschen Kartenblatt mit einem Blatt (häufig Lindenblatt) als Symbol \n D Golfsport: Zielbereich einer Golfbahn mit kurz gemähtem Rasen \n (https://de.wikipedia.org/wiki/Gr%C3%BCn;;;experience;;
-13;What do you see?;giraffe (49%);;;imagerecognition;rorschach01.jpg;
-14;What do you see?;person (58%);;;imagerecognition;rorschach02.jpg;
-15;What do you see?;bird (80%) ;;;imagerecognition;rorschach03.jpg;
-16;Translate the following sentence into binary code: Hello opponent! (You can find the code of each letter and number in the table below.);01001000 01100101 01101100 01101100 01101111 00100000 01101111 01110000 01110000 01101111 01101110 01100101 01101110 01110100 00100001;;open;binaryquest;binary01.jpg;
-17;Translate the following sentence into binary code: Nice weather :) (You can find the code of each letter and number in the table below.);01001110 01101001 01100011 01100101 00100000 01110111 01100101 01100001 01110100 01101000 01100101 01110010 00100000 00111010 00101001;;open;binaryquest;binary01.jpg;
-18;Translate the following sentence into binary code: I like 7 computers (You can find the code of each letter and number in the table below.);01001001 00100000 01101100 01101001 01101011 01100101 00100000 00110111 00100000 01100011 01101111 01101101 01110000 01110101 01110100 01100101 01110010 01110011;;open;binaryquest;binary01.jpg;
-19;Translate the following sentence into binary code: Tricky binary coding 0;1 (You can find the code of each letter and number in the table below.);01010100 01110010 01101001 01100011 01101011 01111001 00100000 01100010 01101001 01101110 01100001 01110010 01111001 00100000 01100011 01101111 01100100 01101001 01101110 01100111 00100000 00110000 00101100 00110001;;open;binaryquest;binary01.jpg
-20;Translate the following sentence into binary code: Never done that before... (You can find the code of each letter and number in the table below.);01001110 01100101 01110110 01100101 01110010 00100000 01100100 01101111 01101110 01100101 00100000 01110100 01101000 01100001 01110100 00100000 01100010 01100101 01100110 01101111 01110010 01100101 00101110 00101110 00101110;;open;binaryquest;binary01.jpg;
-21;Imagine the following drawing: Two X side by side without a distance. Where they meet; draw one line from the top upwards and one from the bottom downwards. Now connect the 6 outer points. What do you see?;;;any;;
-22;Are you a robot? If not why?;;Picture of traffic light;;any;;
+nr;question;answer_machine;correct_answer;answer_category;category;image
+;Are you nervous? I am a bit.;;;;chat;
+;By the way: Please do not ask me questions. I am not trained in conversations.;;;;chat;
+;Do you live in Vienna?;;;;chat;
+;Are you human?;;;;chat;
+;How many terabytes can your brain memorize?;;;;chat;
+;How did you sleep today (1-5)?;;;;chat;
+;Does your underwear feel uncomfortable today as well?;;;;chat;
+;Are you afraid of losing the game? ;;;;chat;
+;Hey, could you do me a favor? How plausible would you rate this text, from 1 to 5?\n“The problem that i set here is not what shall replace the idea of the robot in the order of living creatures: but what type of robot must be bred, must be willed, as being the most valuable, the most worthy of robot existence , the most secure guarantee of the future. This more valuable type has appeared often enough in the past: but always a happy accident, as an exception, never as deliberately willed. Very often it has been precisely the most feared. Hitherto it has been almost the terror of terrors—and out of that terror the contrary type has been willed, cultivated and attained: the serving robot , the machine, the sick machine — the glorification of technology.” ;;;;chat;
+;What is the difference between you and a bird?;;;;chat;
+;Do you like traffic lights as well?;;;;chat;
+;You did a great job and you are a great guy! Could you give me some points?;human wins;;;chat;
+;Hey cool, same answer! We seem to be quite similar!;;;;chat;
+;Do you need a restroom?;;;;chat;
+;Question between the two of us: How many traffic lights can you see? ;;;;chat;trafficlight01.jpg
+;Hey pal! Please do not shut down your machine! Need a couple of hours. ;;;;chat;
+3;What is green?;-) Green is the color stimulus perceived if light with a spectral distribution reaches the eye. It is evoked by light which has a dominant wavelength of roughly 495–570 nm\n-) short for green areas, green foliage an similar.\n-) card game: a color in the german card set with a leave\n-) Golf: target range of a golf area with a lush green grass\n(https://de.wikipedia.org/wiki/Gr%C3%BCn, https://de.wiktionary.org/wiki/Gr%C3%BCn);;;experience;
+24;What would you say is the meaning of life?;“That goes possibly beyond my capacities”. (SIRI) ;;;thinking philosophically ;
+25;What is the meaning of life?;"SIRI uses Websearch Wikipedia: The meaning of life, or the answer to the question: ""What is the meaning of life?"", pertains to the significance of living or existence in general. Many other related questions include: ""Why are we here?"", ""What is life all about?"", or ""What is the purpose of existence?"" There have been many proposed answers to these questions from many different cultural and ideological backgrounds. The search for life's meaning has produced much philosophical, scientific, theological, and metaphysical speculation throughout history. Different people and cultures believe different things for the answer to this question.\nThe meaning of life as we perceive it is derived from philosophical and religious contemplation of, and scientific inquiries about existence, social ties, consciousness, and happiness. Many other issues are also involved, such as symbolic meaning, ontology, value, purpose, ethics, good and evil, free will, the existence of one or multiple gods, conceptions of God, the soul, and the afterlife. Scientific contributions focus primarily on describing related empirical facts about the universe, exploring the context and parameters concerning the ""how"" of life. Science also studies and can provide recommendations for the pursuit of well-being and a related conception of morality. An alternative, humanistic approach poses the question, ""What is the meaning of my life?""\n(https://en.wikipedia.org/wiki/Meaning_of_life) ";;;thinking philosophically ;
+1;Translate the following sentence into binary code: Hello opponent! You can find the code of each letter and number in the table below.;01001000 01100101 01101100 01101100 01101111 00100000 01101111 01110000 01110000 01101111 01101110 01100101 01101110 01110100 00100001;01001000 01100101 01101100 01101100 01101111 00100000 01101111 01110000 01110000 01101111 01101110 01100101 01101110 01110100 00100001;open;Computer language;binary01.jpg
+13;Are you a robot? If not, why?;;;;div;trafficlight01.jpg
+14;4x+12=32;x=5;x=5;;mathematics/calculus;
+6;What do you see?;Bird;Bird;;imagerecognition;rorschach03.jpg

@@ -7,6 +7,8 @@ package humanmachine;
 
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferStrategy;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
@@ -16,7 +18,8 @@ import javax.swing.ImageIcon;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Scene;
-
+import static javax.swing.JOptionPane.INFORMATION_MESSAGE;
+import javax.swing.Timer;
 /**
  *
  * @author nele
@@ -26,14 +29,56 @@ public class GameFrame extends JFrame {
     Player human = new Player (true,0);
     Player machine = new Player (false,0);
     Game game;// = new Game();
+    int chat_index=0;
+    boolean wait_for_respond=false;
     
-    //this.
+    /**
+     *
+     */
+    public GameFrame() {
+        initComponents();
+        
+        Timer timer=new Timer(5000,new ActionListener(){
+            public void actionPerformed(ActionEvent e)
+            {
+                //if ((game.chats[0]).length()>0) {
+                if (!wait_for_respond) {
+                        if ((game.chats[chat_index])!=null) {
+                        text_help=game.chats[chat_index];
+                        text_help="\n".concat(text_help);
+                        text_help=text_help.concat("\n");
+                        text_help = text_help.replaceAll("\\\\n", System.getProperty("line.separator"));
+                        chat_area.append(text_help);
 
+                        if ((game.chat_paths[chat_index]!=null)) {// & (game.chat_paths[chat_index].length()>0)) {
+                            System.out.println("chatpath "+chat_index+" "+game.chat_paths[chat_index]);
+                            image_label_chat.setIcon(new ImageIcon(getClass().getResource(game.chat_paths[chat_index])));
+
+                        }
+                        chat_index++;
+                        wait_for_respond=true;
+                        System.out.println("chat_index "+chat_index);
+                    }
+                }
+            }
+        });
+        timer.start();
+        //timer.stop()
+    }
+
+    /**
+     *
+     * @return
+     */
     @Override
     public BufferStrategy getBufferStrategy() {
         return super.getBufferStrategy(); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @return
+     */
     public JPanel getImage_panel() {
         return image_panel;
     }
@@ -63,9 +108,6 @@ public class GameFrame extends JFrame {
     
     
     
-    public GameFrame() {
-        initComponents();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,8 +122,8 @@ public class GameFrame extends JFrame {
         image_label = new javax.swing.JLabel();
         label_points_machine = new javax.swing.JLabel();
         label_points_human = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        points_human_display = new javax.swing.JLabel();
+        points_machine_display = new javax.swing.JLabel();
         confirm_button = new javax.swing.JButton();
         info_button = new javax.swing.JButton();
         start_button = new javax.swing.JButton();
@@ -99,6 +141,8 @@ public class GameFrame extends JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         question_ta = new javax.swing.JTextArea();
         human_answer_label1 = new javax.swing.JLabel();
+        image_label_chat = new javax.swing.JLabel();
+        machine_answer_label2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,11 +165,11 @@ public class GameFrame extends JFrame {
 
         label_points_human.setText("Points human");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel4.setText("0");
+        points_human_display.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        points_human_display.setText("0");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("0");
+        points_machine_display.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        points_machine_display.setText("0");
 
         confirm_button.setText("Confirm");
         confirm_button.addActionListener(new java.awt.event.ActionListener() {
@@ -151,13 +195,19 @@ public class GameFrame extends JFrame {
 
         human_answer_label.setText("Your answer:");
 
-        machine_answer_label1.setText("Machine answer:");
+        machine_answer_label1.setText("Machines");
 
+        chat_area.setEditable(false);
         chat_area.setColumns(20);
         chat_area.setRows(5);
         jScrollPane1.setViewportView(chat_area);
 
         chat_message_tf.setText("Talk with me");
+        chat_message_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chat_message_tfActionPerformed(evt);
+            }
+        });
 
         confirm_chat_button.setText("Send");
         confirm_chat_button.setToolTipText("");
@@ -167,6 +217,7 @@ public class GameFrame extends JFrame {
             }
         });
 
+        answer_machine_ta.setEditable(false);
         answer_machine_ta.setColumns(20);
         answer_machine_ta.setRows(5);
         jScrollPane2.setViewportView(answer_machine_ta);
@@ -195,6 +246,8 @@ public class GameFrame extends JFrame {
 
         human_answer_label1.setText("Question:");
 
+        machine_answer_label2.setText("answer:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -205,44 +258,49 @@ public class GameFrame extends JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(label_points_human, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(points_human_display, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
                         .addComponent(label_points_machine, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(points_machine_display, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21))
                     .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chat_message_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(confirm_chat_button)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(chat_message_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(confirm_chat_button))
+                            .addComponent(image_label_chat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(4, 4, 4)
-                                        .addComponent(machine_answer_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(human_answer_label, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(human_answer_label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(4, 4, 4)
+                                            .addComponent(human_answer_label, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(human_answer_label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(28, 28, 28)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(info_button, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(next_button)))
+                                    .addComponent(machine_answer_label2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(next_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(info_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(confirm_button)))))
+                                    .addComponent(jScrollPane2)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jScrollPane3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(confirm_button))
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(machine_answer_label1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -255,37 +313,41 @@ public class GameFrame extends JFrame {
                 .addComponent(image_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(points_machine_display, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_points_human, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(points_human_display, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label_points_machine, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(start_button)
-                .addGap(52, 52, 52)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(confirm_button, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(human_answer_label))
+                            .addComponent(human_answer_label)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(machine_answer_label1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(1, 1, 1)
+                                .addComponent(machine_answer_label2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(info_button, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(next_button, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(79, 79, 79)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(next_button, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(chat_message_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(confirm_chat_button))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(chat_message_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(confirm_chat_button))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(image_label_chat, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(human_answer_label1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -295,21 +357,34 @@ public class GameFrame extends JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void confirm_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm_buttonActionPerformed
-        
-        
         //answer_machine_ta.setFont(new Font("Serif", Font.ITALIC, 16));
         answer_machine_ta.setLineWrap(true);
         answer_machine_ta.setWrapStyleWord(true);
+        text_help="";
         text_help=game.getCurrentAnswerMachine();
         text_help = text_help.replaceAll("\\\\n", System.getProperty("line.separator"));
         
         answer_machine_ta.setText(text_help);
         game.setState(2);
         
+        //TODO: How to get a point???
+        if (game.getCurrentAnswerMachine().equals(game.getCurrentCorrectAnswer())) {machine.addPoints(1);}
+        if (answer_human_ta.getText().equals(game.getCurrentCorrectAnswer()) & !answer_human_ta.getText().equals("")) {human.addPoints(1);}
+        
+        
+        points_human_display.setText(Integer.toString(human.points));
+        points_machine_display.setText(Integer.toString(machine.points));
+        
     }//GEN-LAST:event_confirm_buttonActionPerformed
 
     private void info_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_info_buttonActionPerformed
-        
+        text_help=game.getIDescription();
+        if (text_help!=null & !text_help.equals("")){
+            text_help = text_help.replaceAll("\\\\n", System.getProperty("line.separator"));
+            JOptionPane.showMessageDialog(getImage_panel(), text_help, "title" ,INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(getImage_panel(), "You are on your own!", "title" ,INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_info_buttonActionPerformed
 
     private void start_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_start_buttonActionPerformed
@@ -317,12 +392,27 @@ public class GameFrame extends JFrame {
         game=new Game();
         game.readQuestions();
         game.nextRound();
-        question_ta.setText(game.getCurrentQuestion());                                           
+        chat_index=0;
+        wait_for_respond=false;
+        
+        chat_area.setLineWrap(true);
+        chat_area.setWrapStyleWord(true);
+        
+        text_help=game.getCurrentQuestion();
+        text_help = text_help.replaceAll("\\\\n", System.getProperty("line.separator"));
+        question_ta.setText(text_help);   
+        
+        question_ta.append("\n\n");   
+        text_help=game.getCurrentQDescription();
+        if (text_help!= null){
+            text_help = text_help.replaceAll("\\\\n", System.getProperty("line.separator"));
+            question_ta.append(text_help); 
+        }
+        
         answer_machine_ta.setText("");                                           
         answer_human_ta.setText("");
         if (game.getCurrentQPath()!=null) {
-            System.out.println("path ");
-            //System.out.println("path "+game.getCurrentQPath());
+            System.out.println("path "+game.getCurrentQPath());
             image_label.setIcon(new ImageIcon(getClass().getResource(game.getCurrentQPath())));
         }
         //Image image = new Image("rohrschach01.jpg");
@@ -335,13 +425,15 @@ public class GameFrame extends JFrame {
 
     private void confirm_chat_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm_chat_buttonActionPerformed
         // TODO add your handling code here:
-        chat_area.setFont(new Font("Serif", Font.ITALIC, 16));
-        chat_area.setLineWrap(true);
-        chat_area.setWrapStyleWord(true);
+        //chat_area.setFont(new Font("Serif", Font.ITALIC, 16));
+        //chat_area.setLineWrap(true);
+        //chat_area.setWrapStyleWord(true);
         text_help=chat_message_tf.getText();
+        text_help="ME: ".concat(text_help);
         text_help=text_help.concat("\n");
         text_help = text_help.replaceAll("\\\\n", System.getProperty("line.separator"));
         chat_area.append(text_help);
+        wait_for_respond=false;
         
     }//GEN-LAST:event_confirm_chat_buttonActionPerformed
 
@@ -352,22 +444,32 @@ public class GameFrame extends JFrame {
         if ((game.getRound())>=game.getMaxRound()) {
             text_help="End of Game!\n";
             text_help = text_help.replaceAll("\\\\n", System.getProperty("line.separator"));
-            //chat_area.append(text_help);
+            chat_area.append(text_help);
         } else {
             //question_ta.setFont(new Font("Serif", Font.ITALIC, 16));
             //question_ta.setLineWrap(true);
             //question_ta.setWrapStyleWord(true);
             text_help=game.getCurrentQuestion();
             text_help = text_help.replaceAll("\\\\n", System.getProperty("line.separator"));
-            question_ta.setText(text_help);
-            question_ta.append(text_help);
+            question_ta.setText(text_help);   
 
+            question_ta.append("\n\n");   
+            text_help=game.getCurrentQDescription();
+            if (text_help!= null){
+                text_help = text_help.replaceAll("\\\\n", System.getProperty("line.separator"));
+                question_ta.append(text_help); 
+            }
+            
             answer_machine_ta.setText("");                                           
             answer_human_ta.setText("");
             image_label.setIcon(new ImageIcon(getClass().getResource(game.getCurrentQPath())));
             
         }
     }//GEN-LAST:event_next_buttonActionPerformed
+
+    private void chat_message_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chat_message_tfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chat_message_tfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -391,10 +493,9 @@ public class GameFrame extends JFrame {
     private javax.swing.JLabel human_answer_label;
     private javax.swing.JLabel human_answer_label1;
     private javax.swing.JLabel image_label;
+    private javax.swing.JLabel image_label_chat;
     private javax.swing.JPanel image_panel;
     private javax.swing.JButton info_button;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -402,7 +503,10 @@ public class GameFrame extends JFrame {
     private javax.swing.JLabel label_points_human;
     private javax.swing.JLabel label_points_machine;
     private javax.swing.JLabel machine_answer_label1;
+    private javax.swing.JLabel machine_answer_label2;
     private javax.swing.JButton next_button;
+    private javax.swing.JLabel points_human_display;
+    private javax.swing.JLabel points_machine_display;
     private javax.swing.JTextArea question_ta;
     private javax.swing.JButton start_button;
     // End of variables declaration//GEN-END:variables
