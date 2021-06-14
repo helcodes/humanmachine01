@@ -1,0 +1,26 @@
+@startuml
+class humanmachine.Cdc01
+class humanmachine.Game
+class humanmachine.GameFrame
+class humanmachine.Player
+class java.awt.event.ActionEvent
+class java.awt.event.ActionListener
+class javafx.application.Platform
+class javafx.embed.swing.JFXPanel
+class javax.swing.JFrame
+class javax.swing.JOptionPane
+class javax.swing.JPanel
+class javax.swing.SwingUtilities
+class javax.swing.Timer
+humanmachine.GameFrame ..> java.awt.event.ActionEvent
+humanmachine.GameFrame ..> java.awt.event.ActionListener
+humanmachine.GameFrame ..> javafx.application.Platform
+humanmachine.GameFrame ..> javafx.embed.swing.JFXPanel
+humanmachine.GameFrame ..> javafx.scene.Scene
+humanmachine.GameFrame ..> javax.swing.ImageIcon
+humanmachine.GameFrame --|> javax.swing.JFrame
+humanmachine.GameFrame ..> javax.swing.JOptionPane
+humanmachine.GameFrame ..> javax.swing.JPanel
+humanmachine.GameFrame ..> javax.swing.SwingUtilities
+humanmachine.GameFrame ..> javax.swing.Timer
+@enduml
