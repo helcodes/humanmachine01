@@ -1,5 +1,6 @@
 nr;question;answer_machine;answer_possible;answer_category;category;image
 ;Hey, I am your gaming partner for today. What’s your name?;;;;chat;
+13;Are you a robot?;;;;chat;
 ;Are you nervous? I am a bit.;;;;chat;
 ;By the way: Please do not ask me questions. I am not trained in conversations.;;;;chat;
 ;Do you live in Vienna?;;;;chat;
@@ -9,7 +10,6 @@ nr;question;answer_machine;answer_possible;answer_category;category;image
 ;How did you sleep today (1-5)?;;;;chat;
 ;Does your underwear feel uncomfortable today as well?;;;;chat;
 ;Are you afraid of losing the game? ;;;;chat;
-;Hey, could you do me a favor? How plausible would you rate this text, from 1 to 5?\n“The problem that i set here is not what shall replace the idea of the robot in the order of living creatures: but what type of robot must be bred, must be willed, as being the most valuable, the most worthy of robot existence , the most secure guarantee of the future. This more valuable type has appeared often enough in the past: but always a happy accident, as an exception, never as deliberately willed. Very often it has been precisely the most feared. Hitherto it has been almost the terror of terrors—and out of that terror the contrary type has been willed, cultivated and attained: the serving robot , the machine, the sick machine — the glorification of technology.” ;;;;chat;
 ;What is your favorite beverage? ;;;;chat;
 ;What is the difference between you and a bird?;;;;chat;
 ;Do you like traffic lights as well?;;;;chat;
@@ -32,7 +32,7 @@ nr;question;answer_machine;answer_possible;answer_category;category;image
 10;Translate the following sentence into binary code: “Tricky binary coding 0,1”\n\nYou can find the code of each letter and number in the table below.;01010100 01110010 01101001 01100011 01101011 01111001 00100000 01100010 01101001 01101110 01100001 01110010 01111001 00100000 01100011 01101111 01100100 01101001 01101110 01100111 00100000 00110000 00101100 00110001;01010100 01110010 01101001 01100011 01101011 01111001 00100000 01100010 01101001 01101110 01100001 01110010 01111001 00100000 01100011 01101111 01100100 01101001 01101110 01100111 00100000 00110000 00101100 00110001;open;Computer language;binary01.jpg
 11;Translate the following sentence into binary code: “Never done that before…”\n\nYou can find the code of each letter and number in the table below.;01001110 01100101 01110110 01100101 01110010 00100000 01100100 01101111 01101110 01100101 00100000 01110100 01101000 01100001 01110100 00100000 01100010 01100101 01100110 01101111 01110010 01100101 00101110 00101110 00101110;01001110 01100101 01110110 01100101 01110010 00100000 01100100 01101111 01101110 01100101 00100000 01110100 01101000 01100001 01110100 00100000 01100010 01100101 01100110 01101111 01110010 01100101 00101110 00101110 00101110;open;Computer language;binary01.jpg
 12;Imagine the following drawing: Two X side by side without a distance. Where they meet, draw one line from the top upwards and one from the bottom downwards. Now connect the 6 outer points. What do you see?;;;;imagination;
-13;Are you a robot? If not, why?;;;;div;trafficlight01.jpg
+;How plausible would you rate this text, from 1 to 5?\n“The problem that i set here is not what shall replace the idea of the robot in the order of living creatures: but what type of robot must be bred, must be willed, as being the most valuable, the most worthy of robot existence , the most secure guarantee of the future. This more valuable type has appeared often enough in the past: but always a happy accident, as an exception, never as deliberately willed. Very often it has been precisely the most feared. Hitherto it has been almost the terror of terrors—and out of that terror the contrary type has been willed, cultivated and attained: the serving robot , the machine, the sick machine — the glorification of technology.” ;;;;approximation;
 14;4x+12=32;x=5;;;mathematics/calculus;
 15;25+8x=73;x=6;;;mathematics/calculus;
 16;(2/x-1)=(4/x);x=-2;;;mathematics/calculus;

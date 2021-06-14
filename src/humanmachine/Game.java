@@ -104,7 +104,7 @@ public class Game {
                 if (data2.length>0) {description_categories[k]  =data2[0];} else {description_categories[k]="";}
                 if (data2.length>1) {qu_descriptions[k]         =data2[1];} else {qu_descriptions[k]="";}
                 if (data2.length>3) {i_descriptions[k]          =data2[2];} else {i_descriptions[k]="";}
-                if (data2.length>2) {i_descriptions[k]         =i_descriptions[k].concat("\n\n"+data2[3]);}
+                if (data2.length>4) {i_descriptions[k]         =i_descriptions[k].concat("\n\n"+data2[3]);}
                 k++;
             }
             categories=k;
