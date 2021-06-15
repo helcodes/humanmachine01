@@ -1,17 +1,13 @@
 nr;question;answer_machine;correct_answer;answer_category;category;image
 13;Are you a robot?;;;;chat;
-;Are you nervous? I am a bit.;;;;chat;
-;By the way: Please do not ask me questions. I am not trained in conversations.;;;;chat;
-;Do you live in Vienna?;;;;chat;
 ;Are you human?;;;;chat;
 ;How many terabytes can your brain memorize?;;;;chat;
+;Are you nervous? I am a bit.;;;;chat;
 ;How did you sleep today (1-5)?;;;;chat;
 ;Does your underwear feel uncomfortable today as well?;;;;chat;
-;Are you afraid of losing the game? ;;;;chat;
 ;What is the difference between you and a bird?;;;;chat;
 ;Do you like traffic lights as well?;;;;chat;
 ;You did a great job and you are a great guy! Could you give me some points?;human wins;;;chat;
-;Hey cool, same answer! We seem to be quite similar!;;;;chat;
 ;Do you need a restroom?;;;;chat;
 ;Question between the two of us: How many traffic lights can you see? ;;;;chat;trafficlight01.jpg
 ;Hey pal! Please do not shut down your machine! Need a couple of hours. ;;;;chat;
@@ -20,5 +16,5 @@ nr;question;answer_machine;correct_answer;answer_category;category;image
 25;What is the meaning of life?;"SIRI uses Websearch Wikipedia: The meaning of life, or the answer to the question: ""What is the meaning of life?"", pertains to the significance of living or existence in general. Many other related questions include: ""Why are we here?"", ""What is life all about?"", or ""What is the purpose of existence?"" There have been many proposed answers to these questions from many different cultural and ideological backgrounds. The search for life's meaning has produced much philosophical, scientific, theological, and metaphysical speculation throughout history. Different people and cultures believe different things for the answer to this question.\nThe meaning of life as we perceive it is derived from philosophical and religious contemplation of, and scientific inquiries about existence, social ties, consciousness, and happiness. Many other issues are also involved, such as symbolic meaning, ontology, value, purpose, ethics, good and evil, free will, the existence of one or multiple gods, conceptions of God, the soul, and the afterlife. Scientific contributions focus primarily on describing related empirical facts about the universe, exploring the context and parameters concerning the ""how"" of life. Science also studies and can provide recommendations for the pursuit of well-being and a related conception of morality. An alternative, humanistic approach poses the question, ""What is the meaning of my life?""\n(https://en.wikipedia.org/wiki/Meaning_of_life) ";;;thinking philosophically ;
 1;Translate the following sentence into binary code: Hello opponent! You can find the code of each letter and number in the table below.;01001000 01100101 01101100 01101100 01101111 00100000 01101111 01110000 01110000 01101111 01101110 01100101 01101110 01110100 00100001;01001000 01100101 01101100 01101100 01101111 00100000 01101111 01110000 01110000 01101111 01101110 01100101 01101110 01110100 00100001;open;Computer language;binary01.jpg
 14;4x+12=32;x=5;x=5;;mathematics/calculus;
-6;What do you see?;Bird;Bird;;imagerecognition;rorschach03.jpg
+6;What do you see?;Bird;Bird;;rorschachtest;rorschach03.jpg
 ;How plausible would you rate this text, from 1 to 5?\n“The problem that i set here is not what shall replace the idea of the robot in the order of living creatures: but what type of robot must be bred, must be willed, as being the most valuable,\n the most worthy of robot existence , the most secure guarantee of the future. This more valuable type has appeared often enough in the past: \nbut always a happy accident, as an exception, never as deliberately willed. Very often it has been precisely the most feared. Hitherto it has been almost the terror of terrors—and out \nof that terror the contrary type has been willed, cultivated and attained: the serving robot , the machine, the sick machine — the glorification of technology.” ;1;;;approximation;

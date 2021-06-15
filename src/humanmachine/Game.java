@@ -190,7 +190,7 @@ public class Game {
             current_qcategory=qcategories[round];
             current_qpath="";
             if (current_qcategory!=null) {
-                if (current_qcategory.equals("imagerecognition") || current_qcategory.equals("div") || current_qcategory.equals("Computer language")) {
+                if (current_qcategory.equals("imagerecognition") || current_qcategory.equals("div") || current_qcategory.equals("Computer language") || current_qcategory.equals("rorschachtest")) {
                     current_qpath=qpaths[round];
                 }
             }

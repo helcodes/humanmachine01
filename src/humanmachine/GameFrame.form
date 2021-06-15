@@ -25,16 +25,22 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="label_points_human" min="-2" pref="79" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="label_points_human" min="-2" pref="79" max="-2" attributes="0"/>
+                          <Component id="label_points_human1" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="points_human_display" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                      <Component id="label_points_machine" min="-2" pref="93" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="label_points_machine" min="-2" pref="93" max="-2" attributes="0"/>
+                          <Component id="label_points_machine1" min="-2" pref="93" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="points_machine_display" min="-2" pref="50" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
                   <Component id="image_panel" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -53,37 +59,31 @@
                       </Group>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                          <Component id="human_answer_label" min="-2" pref="91" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="human_answer_label1" alignment="1" min="-2" pref="91" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="info_button" min="-2" pref="55" max="-2" attributes="0"/>
-                                          <Component id="next_button" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="machine_answer_label2" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                              <Component id="human_answer_label1" min="-2" pref="91" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jScrollPane2" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jScrollPane3" max="32767" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="confirm_button" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jScrollPane4" alignment="1" min="-2" pref="378" max="-2" attributes="0"/>
+                                  <Component id="next_button" max="32767" attributes="0"/>
+                                  <Component id="info_button" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="machine_answer_label1" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="machine_answer_label2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="machine_answer_label1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="human_answer_label" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jScrollPane2" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jScrollPane3" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="confirm_button" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane4" alignment="1" min="-2" pref="378" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -102,53 +102,71 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="image_panel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="points_machine_display" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
-                  <Component id="label_points_human" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
-                  <Component id="points_human_display" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
-                  <Component id="label_points_machine" alignment="3" min="-2" pref="51" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="label_points_machine" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="points_machine_display" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="label_points_machine1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="points_human_display" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="label_points_human" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="label_points_human1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Component id="start_button" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane4" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
+                  <Component id="human_answer_label1" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane4" min="-2" pref="125" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="confirm_button" min="-2" pref="45" max="-2" attributes="0"/>
-                          <Component id="human_answer_label" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" pref="59" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="machine_answer_label1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Component id="machine_answer_label2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="info_button" min="-2" pref="45" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="next_button" min="-2" pref="45" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jScrollPane2" min="-2" pref="166" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="chat_message_tf" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="confirm_chat_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="image_label_chat" min="-2" pref="113" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jScrollPane1" min="-2" pref="221" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <Component id="human_answer_label1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="human_answer_label" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                      <Component id="machine_answer_label1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="machine_answer_label2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="info_button" min="-2" pref="45" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="next_button" min="-2" pref="45" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane2" min="-2" pref="166" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chat_message_tf" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="confirm_chat_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="image_label_chat" min="-2" pref="113" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane1" min="-2" pref="221" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -183,12 +201,12 @@
     </Container>
     <Component class="javax.swing.JLabel" name="label_points_machine">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Points machine"/>
+        <Property name="text" type="java.lang.String" value="Score non-"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="label_points_human">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Points human"/>
+        <Property name="text" type="java.lang.String" value="Score human"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="points_human_display">
@@ -241,7 +259,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="machine_answer_label1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Machines"/>
+        <Property name="text" type="java.lang.String" value="Non-human"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -353,7 +371,17 @@
     </Component>
     <Component class="javax.swing.JLabel" name="machine_answer_label2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="answer:"/>
+        <Property name="text" type="java.lang.String" value="player:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="label_points_machine1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="human player"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="label_points_human1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="player"/>
       </Properties>
     </Component>
   </SubComponents>
